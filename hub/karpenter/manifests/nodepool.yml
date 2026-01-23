@@ -1,9 +1,9 @@
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
-name: ops
-labels:
-  nodetype: ops
+  name: ops
+  labels:
+    nodetype: ops
 spec:
   template:
     metadata:
@@ -15,29 +15,29 @@ spec:
         kind: EC2NodeClass
         name: ops
       requirements:
-        - key: "nodetype"
+        - key: nodetype
           operator: In
           values:
             - ops
-        - key: "kubernetes.io/arch"
+        - key: kubernetes.io/arch
           operator: In
           values:
             - amd64
-        - key: "kubernetes.io/os"
+        - key: kubernetes.io/os
           operator: In
           values:
             - linux
-        - key: "karpenter.sh/capacity-type"
+        - key: karpenter.sh/capacity-type
           operator: In
           values:
             - on-demand
-        - key: "karpenter.sh/instance-family"
+        - key: karpenter.k8s.aws/instance-family
           operator: In
           values:
             - c7i
             - m7i
             - r7i
-        - key: "karpenter.sh/instance-size"
+        - key: karpenter.k8s.aws/instance-size
           operator: In
           values:
             - large
