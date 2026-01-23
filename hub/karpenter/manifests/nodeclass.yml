@@ -1,0 +1,40 @@
+apiVersion: karpenter.k8s.aws/v1
+kind: EC2NodeClass
+metadata:
+  name: ops
+spec:
+  amiSelectorTerms:
+    - alias: al2023@latest
+  # Required, discovers subnets to attach to instances
+  # Each term in the array of subnetSelectorTerms is ORed together
+  # Within a single term, all conditions are ANDed
+  subnetSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: "mlinfra-eks-cluster"
+
+  # Required, discovers security groups to attach to instances
+  # Each term in the array of securityGroupSelectorTerms is ORed together
+  # Within a single term, all conditions are ANDed
+  securityGroupSelectorTerms:
+    - tags:
+        kubernetes.io/cluster/mlinfra-eks-cluster: "owned"
+
+  # Optional, IAM role to use for the node identity.
+  # Must specify one of "role" or "instanceProfile" for Karpenter to launch nodes
+  role: "KarpenterNodeRole-${CLUSTER_NAME}"
+  metadataOptions:
+    httpEndpoint: enabled
+    httpProtocolIPv6: disabled
+    httpPutResponseHopLimit: 1 # This is changed to disable IMDS access from containers not on the host network
+    httpTokens: required
+
+  # Optional, configures storage devices for the instance
+  blockDeviceMappings:
+    - deviceName: /dev/xvda
+      ebs:
+        volumeSize: 100Gi
+        volumeType: gp3
+        encrypted: true
+        deleteOnTermination: true
+
+  detailedMonitoring: true
