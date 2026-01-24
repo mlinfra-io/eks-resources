@@ -2,7 +2,7 @@ configuration: &configuration
   nodeSelector:
     nodetype: ops
   tolerations:
-    - key: "nodetype"
+    - key: "nodepool"
       operator: "Equal"
       value: "ops"
       effect: "NoSchedule"

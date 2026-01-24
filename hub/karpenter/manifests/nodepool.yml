@@ -6,9 +6,6 @@ metadata:
     nodetype: ops
 spec:
   template:
-    metadata:
-      labels:
-        nodetype: ops
     spec:
       nodeClassRef:
         group: karpenter.k8s.aws
@@ -45,7 +42,6 @@ spec:
             - 2xlarge
             - 4xlarge
       taints:
-        - key: nodetype
-          operator: Equal
+        - key: nodepool
           value: ops
           effect: NoSchedule
