@@ -22,6 +22,18 @@ global:
     format: json
     level: info
 
+redis:
+  <<: *configuration
+
+redis-ha:
+  <<: *configuration
+
+redisSecretInit:
+  <<: *configuration
+
+controller:
+  <<: *configuration
+
 dex:
   <<: *configuration
   enabled: true
@@ -30,4 +42,13 @@ server:
   <<: *configuration
 
 repoServer:
+  <<: *configuration
+
+applicationSet:
+  <<: *configuration
+
+notifications:
+  <<: *configuration
+
+commitServer:
   <<: *configuration
