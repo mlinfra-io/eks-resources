@@ -1,0 +1,33 @@
+configuration: &configuration
+  nodeSelector:
+    nodetype: ops
+  tolerations:
+    - key: "nodetype"
+      operator: "Equal"
+      value: "ops"
+      effect: "NoSchedule"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: nodetype
+                operator: In
+                values:
+                  - ops
+
+global:
+  <<: *configuration
+  logging:
+    format: json
+    level: info
+
+dex:
+  <<: *configuration
+  enabled: true
+
+server:
+  <<: *configuration
+
+repoServer:
+  <<: *configuration
