@@ -44,3 +44,8 @@ spec:
             - xlarge
             - 2xlarge
             - 4xlarge
+      taints:
+        - key: nodetype
+          values:
+            - ops
+          effect: NoSchedule
