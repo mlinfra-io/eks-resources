@@ -21,7 +21,8 @@ spec:
 
   # Optional, IAM role to use for the node identity.
   # Must specify one of "role" or "instanceProfile" for Karpenter to launch nodes
-  role: "KarpenterController-20260121020315064300000009"
+  role: "mlinfra-eks-cluster-karpenter-node"
+  instanceProfile: "mlinfra-eks-cluster-karpenter-node"
   metadataOptions:
     httpEndpoint: enabled
     httpProtocolIPv6: disabled
