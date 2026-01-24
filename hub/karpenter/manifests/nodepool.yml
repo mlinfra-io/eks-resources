@@ -42,6 +42,6 @@ spec:
             - 2xlarge
             - 4xlarge
       taints:
-        - key: nodepool
+        - key: nodetype
           value: ops
           effect: NoSchedule
