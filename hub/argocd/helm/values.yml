@@ -24,6 +24,7 @@ global:
 
 redis:
   <<: *configuration
+  enabled: false
 
 redis-ha:
   <<: *configuration
