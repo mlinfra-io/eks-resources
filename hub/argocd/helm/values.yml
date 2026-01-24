@@ -29,6 +29,15 @@ redis:
 redis-ha:
   <<: *configuration
   enabled: true
+  affinity: |
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: nodetype
+                operator: In
+                values:
+                  - ops
 
 redisSecretInit:
   <<: *configuration
