@@ -46,5 +46,6 @@ spec:
             - 4xlarge
       taints:
         - key: nodetype
+          operator: Equal
           value: ops
           effect: NoSchedule
