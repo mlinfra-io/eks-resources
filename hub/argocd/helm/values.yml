@@ -27,12 +27,14 @@ redis:
 
 redis-ha:
   <<: *configuration
+  enabled: true
 
 redisSecretInit:
   <<: *configuration
 
 controller:
   <<: *configuration
+  replicas: 1
 
 dex:
   <<: *configuration
@@ -40,12 +42,19 @@ dex:
 
 server:
   <<: *configuration
+  autoscaling:
+    enabled: true
+    minReplicas: 2
 
 repoServer:
   <<: *configuration
+  autoscaling:
+    enabled: true
+    minReplicas: 2
 
 applicationSet:
   <<: *configuration
+  replicas: 2
 
 notifications:
   <<: *configuration
