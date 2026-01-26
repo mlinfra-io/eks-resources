@@ -4,7 +4,7 @@ spec:
   source:
     manifestsRepo: https://github.com/mlinfra-io/eks-resources
     targetRevision: HEAD
-    path: hub/projects/
+    path: hub/projects
 
 applications:
   - name: karpenter
