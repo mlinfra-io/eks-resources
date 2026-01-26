@@ -14,7 +14,7 @@ applications:
     project: default
     createNamespace: false
     targetRevision: 1.8.5
-    valuesFile:
+    valueFiles:
       - values.yaml
   - name: metrics-server
     repoURL: https://kubernetes-sigs.github.io/metrics-server
@@ -23,5 +23,5 @@ applications:
     project: default
     createNamespace: true
     targetRevision: 3.13.0
-    valuesFile:
+    valueFiles:
       - values.yaml

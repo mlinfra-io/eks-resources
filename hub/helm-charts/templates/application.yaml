@@ -22,7 +22,7 @@ spec:
       chart: {{ .chart }}
       helm:
         valueFiles:
-        {{- range .valuesFiles }}
+        {{- range .valueFiles }}
           - $values/{{ $.Values.spec.source.path }}/{{ $application.name }}/{{ . }}
         {{- end }}
 
