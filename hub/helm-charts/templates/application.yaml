@@ -25,6 +25,9 @@ spec:
         {{- range .valueFiles }}
           - $values/{{ $.Values.spec.source.path }}/{{ $application.name }}/{{ . }}
         {{- end }}
+    - repoURL: {{ $.Values.spec.source.manifestsRepo }}
+      targetRevision: {{ $.Values.spec.source.targetRevision }}
+      ref: values
 
   syncPolicy:
     automated:
