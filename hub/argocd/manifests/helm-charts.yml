@@ -11,7 +11,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/mlinfra-eks/eks-resources
+    repoURL: https://github.com/mlinfra-io/eks-resources
     targetRevision: HEAD
     path: hub/argocd/helm-charts
   destination:
