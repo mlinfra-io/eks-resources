@@ -1,0 +1,50 @@
+{{- with .Values.applications}}
+{{- range $application := .}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .name }}
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    argocd.argoproj.io/app-of-apps: "true"
+    app.kubernetes.io/name: {{ .name }}
+spec:
+  destination:
+    server: {{ $.Values.spec.destination.server }}
+    namespace: {{ .namespace }}
+  project: {{ .project }}
+
+  source:
+    repoURL: {{ .repoURL }}
+    targetRevision: {{ .targetRevision }}
+    chart: {{ .chart }}
+    helm:
+      valueFiles:
+      {{- range .valuesFiles }}
+      - $values/{{ $.Values.spec.source.path }}/{{ $application.name }}/{{ . }}
+      {{- end }}
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace={{ .createNamespace }}
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+      - ApplyOutOfSyncOnly=true
+      {{- if .syncOptions }}
+      {{- range .syncOptions }}
+      - {{ . }}
+      {{- end }}
+      {{- end }}
+    retry:
+      limit: 3
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 1m
+{{- end}}
+{{- end}}

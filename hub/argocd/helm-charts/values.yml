@@ -1,0 +1,27 @@
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    manifestsRepo: https://github.com/mlinfra-eks/eks-resources
+    targetRevision: HEAD
+    path: hub/
+
+applications:
+  - name: karpenter
+    repoURL: public.ecr.aws/karpenter
+    chart: karpenter
+    namespace: kube-system
+    project: default
+    createNamespace: false
+    targetRevision: 1.8.5
+    valuesFile:
+      - values.yml
+  - name: metrics-server
+    repoURL: https://kubernetes-sigs.github.io/metrics-server
+    chart: metrics-server
+    namespace: metrics-server
+    project: default
+    createNamespace: true
+    targetRevision: 3.13.0
+    valuesFile:
+      - values.yml
