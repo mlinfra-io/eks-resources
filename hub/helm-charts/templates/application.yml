@@ -16,15 +16,18 @@ spec:
     namespace: {{ .namespace }}
   project: {{ .project }}
 
-  source:
-    repoURL: {{ .repoURL }}
-    targetRevision: {{ .targetRevision }}
-    chart: {{ .chart }}
-    helm:
-      valueFiles:
-      {{- range .valuesFiles }}
-      - $values/{{ $.Values.spec.source.path }}/{{ $application.name }}/{{ . }}
-      {{- end }}
+  sources:
+    - repoURL: {{ .repoURL }}
+      targetRevision: {{ .targetRevision }}
+      chart: {{ .chart }}
+      helm:
+        valueFiles:
+        {{- range .valuesFiles }}
+          - $values/{{ $.Values.spec.source.path }}/{{ $application.name }}/{{ . }}
+        {{- end }}
+    - repoURL: {{ $.Values.spec.source.manifestsRepo }}
+      targetRevision: {{ $.Values.spec.source.targetRevision }}
+      path: values
 
   syncPolicy:
     automated:
