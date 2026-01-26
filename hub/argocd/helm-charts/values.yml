@@ -2,7 +2,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   source:
-    manifestsRepo: https://github.com/mlinfra-eks/eks-resources
+    manifestsRepo: https://github.com/mlinfra-io/eks-resources
     targetRevision: HEAD
     path: hub/
 
