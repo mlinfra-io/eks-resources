@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/mlinfra-io/eks-resources
     targetRevision: HEAD
-    path: hub/argocd/helm-charts
+    path: hub/helm-charts
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
