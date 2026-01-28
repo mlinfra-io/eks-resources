@@ -25,3 +25,12 @@ applications:
     targetRevision: 3.13.0
     valueFiles:
       - values.yaml
+  - name: istio
+    repoURL: https://istio-release.storage.googleapis.com/charts
+    chart: istio
+    namespace: istio-system
+    project: default
+    createNamespace: true
+    targetRevision: 1.28.3
+    valueFiles:
+      - values.yaml
