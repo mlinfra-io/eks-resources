@@ -39,7 +39,7 @@ applications:
     chart: istiod
     namespace: istio-system
     project: default
-    createNamespace: true
+    createNamespace: false
     targetRevision: 1.28.3
     valueFiles:
       - values.yaml
