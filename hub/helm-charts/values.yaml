@@ -7,15 +7,6 @@ spec:
     path: hub/projects
 
 applications:
-  - name: karpenter
-    repoURL: public.ecr.aws/karpenter
-    chart: karpenter
-    namespace: kube-system
-    project: default
-    createNamespace: false
-    targetRevision: 1.8.5
-    valueFiles:
-      - values.yaml
   - name: metrics-server
     repoURL: https://kubernetes-sigs.github.io/metrics-server
     chart: metrics-server
