@@ -25,12 +25,3 @@ applications:
     targetRevision: 3.13.0
     valueFiles:
       - values.yaml
-  - name: vpc-cni
-    repoURL: https://aws.github.io/eks-charts
-    chart: aws-vpc-cni
-    namespace: kube-system
-    project: default
-    createNamespace: false
-    targetRevision: 1.21.0
-    valueFiles:
-      - values.yaml
