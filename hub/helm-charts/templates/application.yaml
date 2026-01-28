@@ -1,5 +1,6 @@
 {{- with .Values.applications}}
 {{- range $application := .}}
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -36,7 +37,7 @@ spec:
     syncOptions:
       - CreateNamespace={{ .createNamespace }}
       - PrunePropagationPolicy=foreground
-      # - PruneLast=true
+      - PruneLast=true
       - ApplyOutOfSyncOnly=true
       {{- if .syncOptions }}
       {{- range .syncOptions }}
