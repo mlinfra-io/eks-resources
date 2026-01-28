@@ -17,3 +17,5 @@ configuration: &configuration
                   - ops
 
 <<: *configuration
+cni:
+  enabled: true
