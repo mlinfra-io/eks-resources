@@ -25,21 +25,21 @@ applications:
     targetRevision: 3.13.0
     valueFiles:
       - values.yaml
-  - name: istio-base
-    repoURL: https://istio-release.storage.googleapis.com/charts
-    chart: base
-    namespace: istio-system
-    project: default
-    createNamespace: true
-    targetRevision: 1.28.3
-    valueFiles:
-      - values.yaml
-  - name: istiod
-    repoURL: https://istio-release.storage.googleapis.com/charts
-    chart: istiod
-    namespace: istio-system
-    project: default
-    createNamespace: false
-    targetRevision: 1.28.3
-    valueFiles:
-      - values.yaml
+  # - name: istio-base
+  #   repoURL: https://istio-release.storage.googleapis.com/charts
+  #   chart: base
+  #   namespace: istio-system
+  #   project: default
+  #   createNamespace: true
+  #   targetRevision: 1.28.3
+  #   valueFiles:
+  #     - values.yaml
+  # - name: istiod
+  #   repoURL: https://istio-release.storage.googleapis.com/charts
+  #   chart: istiod
+  #   namespace: istio-system
+  #   project: default
+  #   createNamespace: false
+  #   targetRevision: 1.28.3
+  #   valueFiles:
+  #     - values.yaml
