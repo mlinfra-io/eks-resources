@@ -1,0 +1,9 @@
+imageRegion: &imageRegion
+  image:
+    region: eu-central-1
+
+<<: *imageRegion
+init:
+  <<: *imageRegion
+nodeAgent:
+  <<: *imageRegion
