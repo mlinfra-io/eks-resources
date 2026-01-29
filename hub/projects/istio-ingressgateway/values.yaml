@@ -1,19 +1,16 @@
-configuration: &configuration
-  nodeSelector:
-    nodetype: ops
-  tolerations:
-    - key: "nodetype"
-      operator: "Equal"
-      value: "ops"
-      effect: "NoSchedule"
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-              - key: nodetype
-                operator: In
-                values:
-                  - ops
-
-<<: *configuration
+nodeSelector:
+  nodetype: ops
+tolerations:
+  - key: "nodetype"
+    operator: "Equal"
+    value: "ops"
+    effect: "NoSchedule"
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: nodetype
+              operator: In
+              values:
+                - ops
