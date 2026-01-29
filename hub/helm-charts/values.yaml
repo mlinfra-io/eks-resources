@@ -55,9 +55,9 @@ applications:
   - name: istio-ingressgateway
     repoURL: https://istio-release.storage.googleapis.com/charts
     chart: gateway
-    namespace: istio-system
+    namespace: istio-ingress
     project: default
-    createNamespace: false
+    createNamespace: true
     targetRevision: 1.28.3
     valueFiles:
       - values.yaml
