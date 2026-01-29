@@ -52,15 +52,15 @@ applications:
     targetRevision: 1.28.3
     valueFiles:
       - values.yaml
-  - name: istio-ingressgateway
-    repoURL: https://istio-release.storage.googleapis.com/charts
-    chart: gateway
-    namespace: istio-ingress
-    project: default
-    createNamespace: true
-    targetRevision: 1.28.3
-    valueFiles:
-      - values.yaml
+  # - name: istio-ingressgateway
+  #   repoURL: https://istio-release.storage.googleapis.com/charts
+  #   chart: gateway
+  #   namespace: istio-ingress
+  #   project: default
+  #   createNamespace: true
+  #   targetRevision: 1.28.3
+  #   valueFiles:
+  #     - values.yaml
   - name: aws-load-balancer-controller
     repoURL: https://aws.github.io/eks-charts
     chart: aws-load-balancer-controller
