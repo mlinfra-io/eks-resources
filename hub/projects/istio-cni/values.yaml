@@ -17,5 +17,11 @@ configuration: &configuration
                   - ops
 
 <<: *configuration
+
 ambient:
   enabled: true
+
+cni:
+  cniBinDir: /opt/cni/bin
+  cniConfDir: /etc/cni/net.d
+  privileged: true
