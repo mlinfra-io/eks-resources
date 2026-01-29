@@ -52,7 +52,7 @@ applications:
     targetRevision: 1.28.3
     valueFiles:
       - values.yaml
-  - name: istio-ingress
+  - name: istio-ingressgateway
     repoURL: https://istio-release.storage.googleapis.com/charts
     chart: gateway
     namespace: istio-system
