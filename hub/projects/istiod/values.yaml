@@ -19,3 +19,5 @@ configuration: &configuration
 <<: *configuration
 
 profile: ambient
+ambient:
+  enabled: true
