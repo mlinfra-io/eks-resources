@@ -34,6 +34,15 @@ applications:
     targetRevision: 1.28.3
     valueFiles:
       - values.yaml
+  - name: istio-cni
+    repoURL: https://istio-release.storage.googleapis.com/charts
+    chart: cni
+    namespace: istio-system
+    project: default
+    createNamespace: false
+    targetRevision: 1.28.3
+    valueFiles:
+      - values.yaml
   - name: ztunnel
     repoURL: https://istio-release.storage.googleapis.com/charts
     chart: ztunnel
@@ -41,5 +50,23 @@ applications:
     project: default
     createNamespace: false
     targetRevision: 1.28.3
+    valueFiles:
+      - values.yaml
+  - name: istio-ingress
+    repoURL: https://istio-release.storage.googleapis.com/charts
+    chart: gateway
+    namespace: istio-system
+    project: default
+    createNamespace: false
+    targetRevision: 1.28.3
+    valueFiles:
+      - values.yaml
+  - name: aws-load-balancer-controller
+    repoURL: https://aws.github.io/eks-charts
+    chart: aws-load-balancer-controller
+    namespace: kube-system
+    project: default
+    createNamespace: true
+    targetRevision: 3.0.0
     valueFiles:
       - values.yaml
