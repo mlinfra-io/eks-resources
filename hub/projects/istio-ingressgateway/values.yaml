@@ -17,8 +17,7 @@ affinity:
 
 service:
   annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: "nlb-ip"
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
     service.beta.kubernetes.io/aws-load-balancer-scheme: "internal"
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-protocol: "http"
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-path: "/"
-    service.beta.kubernetes.io/aws-load-balancer-healthcheck-port: "traffic-port"
