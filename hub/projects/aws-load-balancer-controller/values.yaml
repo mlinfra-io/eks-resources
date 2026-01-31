@@ -1,3 +1,4 @@
 clusterName: mlinfra-eks-cluster
 defaultTargetType: ip
 vpcId: vpc-0110b764bbcff91a4
+region: eu-central-1
