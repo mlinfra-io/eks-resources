@@ -2,3 +2,8 @@ clusterName: mlinfra-eks-cluster
 defaultTargetType: ip
 vpcId: vpc-0110b764bbcff91a4
 region: eu-central-1
+serviceAccount:
+  create: true
+  name: aws-load-balancer-controller
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::793009824629:role/aws-load-balancer-controller
