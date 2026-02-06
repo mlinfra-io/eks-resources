@@ -1,6 +1,56 @@
+configuration: &configuration
+  nodeSelector:
+    nodetype: ops
+  tolerations:
+    - key: "nodetype"
+      operator: "Equal"
+      value: "ops"
+      effect: "NoSchedule"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: nodetype
+                operator: In
+                values:
+                  - ops
+
 cni:
   chainingMode: aws-cni
   exclusive: false
 enableIPv4Masquerade: false
 routingMode: native
 kubeProxyReplacement: true
+
+certgen:
+  tolerations:
+    <<: *configuration
+
+envoy:
+  tolerations:
+    <<: *configuration
+
+hubble:
+  relay:
+    tolerations:
+      <<: *configuration
+  ui:
+    tolerations:
+      <<: *configuration
+
+nodeinit:
+  tolerations:
+    <<: *configuration
+
+operator:
+  tolerations:
+    <<: *configuration
+
+preflight:
+  tolerations:
+    <<: *configuration
+
+standaloneDnsProxy:
+  tolerations:
+    <<: *configuration
