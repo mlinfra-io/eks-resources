@@ -24,33 +24,25 @@ routingMode: native
 kubeProxyReplacement: true
 
 certgen:
-  tolerations:
-    <<: *configuration
+  <<: *configuration
 
 envoy:
-  tolerations:
-    <<: *configuration
+  <<: *configuration
 
 hubble:
   relay:
-    tolerations:
-      <<: *configuration
+    <<: *configuration
   ui:
-    tolerations:
-      <<: *configuration
+    <<: *configuration
 
 nodeinit:
-  tolerations:
-    <<: *configuration
+  <<: *configuration
 
 operator:
-  tolerations:
-    <<: *configuration
+  <<: *configuration
 
 preflight:
-  tolerations:
-    <<: *configuration
+  <<: *configuration
 
 standaloneDnsProxy:
-  tolerations:
-    <<: *configuration
+  <<: *configuration
